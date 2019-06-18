@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="home/index :: #header-section">
+    </head>
+<body>
+<div class="container">
+    <div th:replace="home/index :: #navbar-section"></div>
+    <table class="table table-striped">
+        <caption>Reservations</caption>
+        <thead>
+        <tr>
+        <th>#</th>
+        <th scope="col">Start Date</th>
+        <th scope="col">End Date</th>
+        <th scope="col">Villa</th>
+        <th scope="col">Customer</th>
+        </tr>
+        </thead>
+        <tbody >
+        <tr class="datarow" th:each="reservation,iter : ${reservations}">
+        <td th:text="*{iter.count}"></td>
+        <td th:text="*{reservation.startDate}"></td>
+        <td th:text="*{reservation.endDate}"></td>
+        <td th:text="*{reservation.villa.villaNumber}"></td>
+        <td th:text="*{reservation.customer.name}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div th:replace="home/index :: #footer-section"></div>
+</div>
+</body>
+</html>

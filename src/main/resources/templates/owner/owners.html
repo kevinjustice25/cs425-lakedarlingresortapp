@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="home/index :: #header-section">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <nav th:replace="home/index :: #navbar-section"></nav>
+    <table class="table table-striped" th:object="${owners}">
+        <thead>
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">Owner Name Name</th>
+        <th scope="col">Owner Email</th>
+        <th scope="col">Owner Phone</th>
+        <th scope="col">Address</th>
+        </tr>
+        </thead>
+        <tbody >
+        <tr class="datarow" th:each="owner : ${owners}">
+        <td th:text="${owner.ownerId}"></td>
+        <td th:text="${owner.name}"></td>
+        <td th:text="${owner.email}"></td>
+        <td th:text="${owner.phone}"></td>
+        <td th:text="${owner.address.city} + ', ' + ${owner.address.state}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+<footer th:replace="home/index :: #footer-section"></footer>
+</html>

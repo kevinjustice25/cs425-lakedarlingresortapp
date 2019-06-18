@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="home/index :: #header-section">
+    </head>
+<body>
+<div class="container">
+<div th:replace="home/index :: #navbar-section"></div>
+<form th:action="@{/newvillaform}" method="post" th:object="${villa}">
+    <div class="form-group">
+        <label for="villanumber">Villa Number</label>
+        <div th:if="${#fields.hasErrors('villaNumber')}" th:errors="*{villaNumber}" class="alert alert-danger"></div>
+        <input type="text" id="villanumber" th:field="${villa.villaNumber}" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="numbeds">Number of Beds</label>
+        <div th:if="${#fields.hasErrors('numberBeds')}" th:errors="*{numberBeds}"></div>
+        <input type="text" id="numbeds" th:field="${villa.numberBeds}" class="form-control">
+    </div>
+    <div class="fort-group">
+        <label for="price">Price Per Night</label>
+        <div th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div>
+        <input type="number" id="price" th:field="${villa.price}" class="form-control">
+    </div>
+    <div class="form-group" >
+        <label for="owner">Owner - (note: Owner Must Be Added Before Villa)</label>
+<!--        <div th:if="${#fields.hasErrors('ownerid')}" th:errors="*{}" class="alert alert-danger"></div>-->
+        <select class="form-control" id="owner" name="ownerid" >
+            <option th:each="owner : ${owners}"
+                    th:value="${owner.ownerId}"
+                    th:text="${owner.name}"
+            ></option>
+        </select>
+        <button type="submit" class="btn btn-primary">Save Villa</button>
+    </div>
+</form>
+</div>
+</body>
+</html>

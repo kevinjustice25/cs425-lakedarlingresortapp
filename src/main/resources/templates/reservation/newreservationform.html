@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="home/index :: #header-section">
+</head>
+<body>
+<div class="container">
+    <div th:replace="home/index :: #navbar-section"></div>
+
+    <form action="/newreservationform" method="post" th:object="${reservation}">
+        <div th:errors="${reservation}" class="alert alert-danger"></div>
+        <div class="form-group">
+            <label for="startdate">Start Date</label>
+            <div th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}"></div>
+            <input type="date" id="startdate" th:min="${#dates.createNow()}" th:field="*{startDate}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="enddate">End Date</label>
+            <div th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}"></div>
+            <input type="date" id="enddate" th:min="${#dates.createNow()}" th:field="*{endDate}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="customerid">Customer (Note: will be removed after login is implemented will get from session variable)</label>
+            <select name="customerid" id="customerid" class="form-control">
+                <option th:each="customer : ${customers}"
+                        th:text="${customer.name}"
+                        th:value="${customer.customerId}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="villaid">Villa (Note: will be removed after select num rooms implemented</label>
+            <select name="villaid" id="villaid" class="form-control">
+                <option th:each="villa : ${villas}"
+                        th:text="${villa.villaNumber}"
+                        th:value="${villa.villaId}"></option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Save New Reservation</button>
+    </form>
+</div>
+</body>
+</html>
