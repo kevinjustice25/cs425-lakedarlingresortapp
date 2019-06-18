@@ -33,10 +33,7 @@ public class CustomerController {
         modelAndView.setViewName("customer/customers");
         return modelAndView;
     }
-    @GetMapping(value = {"","/","/home"})
-    public String viewHomepage(){
-        return "home/index";
-    }
+
     @GetMapping(value = "/newcustomerform")
     public String viewNewCustomerForm(Model model){
         model.addAttribute("customer",new Customer());
@@ -55,8 +52,8 @@ public class CustomerController {
             System.out.println("customer errors");
             return "customer/newcustomerform";
         }
-
         customerService.save(customer,address);
-        return "redirect:customer/customers";
+        System.out.println("Customer saved");
+        return "redirect:/home";
     }
 }

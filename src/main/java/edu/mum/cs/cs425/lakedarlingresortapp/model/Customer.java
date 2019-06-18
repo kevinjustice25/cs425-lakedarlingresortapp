@@ -5,7 +5,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "customers")
@@ -14,7 +18,7 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Long customerId;
+    private Long customer_id;
 
     @Column
     private String name;
@@ -33,10 +37,37 @@ public class Customer {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfBirth;
 
+    @ManyToMany(cascade=CascadeType.MERGE, fetch = FetchType.EAGER)
+    @JoinTable(
+            name="customer_roles",
+            joinColumns={@JoinColumn(name="customer_id", referencedColumnName="customer_id")},
+            inverseJoinColumns={@JoinColumn(name="role_id", referencedColumnName="id")})
+    private Set<Role> roles = new HashSet<>();
+
+    @Column(nullable=false)
+    @NotBlank(message = "* Password is required")
+    @Size(min=8)
+    private String password;
+
 
     public Customer() {
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 
     public LocalDate getDateOfBirth() {
         return dateOfBirth;
@@ -47,11 +78,11 @@ public class Customer {
     }
 
     public Long getCustomerId() {
-        return customerId;
+        return customer_id;
     }
 
     public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
+        this.customer_id = customerId;
     }
 
     public String getName() {
@@ -89,7 +120,7 @@ public class Customer {
     @Override
     public String toString() {
         return "Customer{" +
-                "customerId=" + customerId +
+                "customerId=" + customer_id +
                 ", name='" + name + '\'' +
                 ", address=" + address +
                 ", phone='" + phone + '\'' +

@@ -33,6 +33,12 @@
                   class="alert alert-danger"></span>
             <input type="text" id="email" class="form-control" th:field="${customer.email}">
         </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+                  class="alert alert-danger"></span>
+            <input type="password" id="password" class="form-control" th:field="${customer.password}">
+        </div>
         <div th:object="${address}">
         <div class="form-group">
             <label for="houseNumber">House Number</label>
