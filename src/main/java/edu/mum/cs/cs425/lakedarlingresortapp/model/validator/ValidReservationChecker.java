@@ -26,8 +26,7 @@ public class ValidReservationChecker implements ConstraintValidator<ValidReserva
 //        constraintValidatorContext.buildConstraintViolationWithTemplate(constraintValidatorContext.getDefaultConstraintMessageTemplate()).;
 //        System.out.println(constraintValidatorContext.getDefaultConstraintMessageTemplate());
         if (reservation.getCustomer()==null || reservation.getVilla()==null ||
-            reservation.getStartDate()==null || reservation.getEndDate()==null ||
-            reservation.getReservationId()==null){
+            reservation.getStartDate()==null || reservation.getEndDate()==null){
             return false;
         }
 //        date checks
@@ -38,10 +37,12 @@ public class ValidReservationChecker implements ConstraintValidator<ValidReserva
             return false;
         }
 //        customer and villa exist
-        if (!villaService.existsbyId(reservation.getVilla().getVillaId()) ||
-            !customerService.existsById(reservation.getCustomer().getCustomerId())){
-            return false;
-        }
+//        if (!villaService.existsbyId(reservation.getVilla().getVillaId())){
+//            return false;
+//        }
+//        if (!customerService.existsById(reservation.getCustomer().getCustomerId())){
+//            return false;
+//        }
         return true;
     }
 

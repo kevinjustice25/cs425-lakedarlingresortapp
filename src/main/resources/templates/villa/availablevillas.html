@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="home/index :: #header-section">
+</head>
+<body>
+<div class="containter">
+    <div th:replace="home/index :: #navbar-section">
+    </div>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Villa Number</th>
+            <th scope="col">Number Beds</th>
+            <th scope="col">Price per Night</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr class="datarow" th:each="villa,iter : ${villas}" >
+            <th scope="row" th:text="${iter.count}+'.'"></th>
+            <td th:text="${villa.villaNumber}"></td>
+            <td th:text="${villa.numberBeds}"></td>
+            <td th:text="${#numbers.formatCurrency(villa.price)}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div th:replace="home/index :: #footer-section"></div>
+</div>
+</body>
+</html>

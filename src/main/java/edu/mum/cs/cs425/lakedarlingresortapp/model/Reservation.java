@@ -26,6 +26,9 @@ public class Reservation {
     @NotNull
     private LocalDate endDate;
 
+    @Column
+    private Float totalPrice;
+
     @OneToOne
     private Customer customer;
 
@@ -33,6 +36,14 @@ public class Reservation {
     private Villa villa;
 
     public Reservation() {
+    }
+
+    public Float getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(Float totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
     public Long getReservationId() {

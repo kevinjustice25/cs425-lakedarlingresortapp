@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="home/index :: #header-section">
+</head>
+<body>
+<div class="containter">
+    <div th:replace="home/index :: #navbar-section"></div>
+    <form action="/checkout" method="post" >
+        <div>
+            <input type="text" hidden readonly name="villaid"  th:value="${villa.villaId}" >
+        </div>
+        <input type="date" readonly id="startdate" name="startdate"  th:value="${#temporals.format(startdate, 'yyyy-MM-dd')}" >
+        <input type="date" readonly id="enddate" name="enddate" th:value="${#temporals.format(enddate, 'yyyy-MM-dd')}" >
+        <input type="text" id="price" readonly name="price" th:value="${#numbers.formatCurrency(villa.price)}">
+        <input type="text" id="totalprice" readonly name="totalprice" th:value="${#numbers.formatCurrency(totalprice)}">
+        <input type="text" name="ccinfo" id="ccinfo">
+        <button type="submit" class="btn btn-primary">Book Your Stay!</button>
+    </form>
+
+
+    <div th:replace="home/index :: #footer-section"></div>
+</div>
+</body>
+</html>

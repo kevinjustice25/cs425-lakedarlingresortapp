@@ -29,9 +29,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private ICustomerService customerService;
 
-//    @Autowired
-//    private DataSource dataSource;
-
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -40,10 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
-//                .inMemoryAuthentication()
-//                .withUser("kevinjustice25@gmail.com")
-//                .password(passwordEncoder().encode("test1234")).roles("ADMIN");
-                .userDetailsService(customerService)   //once in db this commented section should work
+                .userDetailsService(customerService)
                 .passwordEncoder(passwordEncoder());
 
     }
@@ -55,11 +49,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .headers()
                 .frameOptions().sameOrigin()
                 .and()
+                .csrf().disable()
                 .authorizeRequests()
+                .antMatchers("/newreservationform").hasAnyAuthority("CUSTOMER")
+                .antMatchers(HttpMethod.POST, "/checkout", "/booknow").hasAnyAuthority("CUSTOMER")
+                .antMatchers(HttpMethod.POST, "/newcustomerform").permitAll()
                 .antMatchers("/resources/**", "/home/**", "/webjars/**", "/assets/**").permitAll()
                 .antMatchers("/home", "/newcustomerform").permitAll()
-                .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers(HttpMethod.POST, "/newcustomerform").permitAll()
+                .antMatchers("/admin/**").hasAnyAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -74,8 +71,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/login?logout")
                 .permitAll()
                 .and()
-                .exceptionHandling()
-                .and()
-                .csrf().disable();
+                .exceptionHandling();
     }
 }

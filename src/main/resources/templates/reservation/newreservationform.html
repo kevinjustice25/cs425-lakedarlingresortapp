@@ -6,35 +6,25 @@
 <div class="container">
     <div th:replace="home/index :: #navbar-section"></div>
 
-    <form action="/newreservationform" method="post" th:object="${reservation}">
-        <div th:errors="${reservation}" class="alert alert-danger"></div>
+    <form action="/booknow" method="post" >
         <div class="form-group">
             <label for="startdate">Start Date</label>
-            <div th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}"></div>
-            <input type="date" id="startdate" th:min="${#dates.createNow()}" th:field="*{startDate}" class="form-control">
+            <input type="date" id="startdate" th:min="${#dates.createNow()}" name="startdate" class="form-control">
         </div>
         <div class="form-group">
             <label for="enddate">End Date</label>
-            <div th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}"></div>
-            <input type="date" id="enddate" th:min="${#dates.createNow()}" th:field="*{endDate}" class="form-control">
+            <input type="date" id="enddate" name="enddate"
+                   th:min="${#dates.createNow()}" class="form-control">
         </div>
         <div class="form-group">
-            <label for="customerid">Customer (Note: will be removed after login is implemented will get from session variable)</label>
-            <select name="customerid" id="customerid" class="form-control">
-                <option th:each="customer : ${customers}"
-                        th:text="${customer.name}"
-                        th:value="${customer.customerId}"></option>
+            <label for="numBeds">Number Of Beds</label>
+            <select id="numBeds" name="numbeds">
+                <option value="8" th:text="8"></option>
+                <option value="10" th:text="10"></option>
+                <option value="12" th:text="12"></option>
             </select>
         </div>
-        <div class="form-group">
-            <label for="villaid">Villa (Note: will be removed after select num rooms implemented</label>
-            <select name="villaid" id="villaid" class="form-control">
-                <option th:each="villa : ${villas}"
-                        th:text="${villa.villaNumber}"
-                        th:value="${villa.villaId}"></option>
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Save New Reservation</button>
+        <button type="submit" class="btn btn-primary">Check Availability & Enter Payment</button>
     </form>
 </div>
 </body>
