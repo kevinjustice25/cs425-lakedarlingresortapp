@@ -8,7 +8,28 @@
 <div class="container">
     <nav th:replace="home/index :: #navbar-section"></nav>
     <h1>Success You Will Receive An Email Conformation Shortly!! We Are Excited To See You</h1>
+    <table class="table table-striped">
+        <caption>Reservations</caption>
+        <thead>
+        <tr>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+            <th scope="col">Price</th>
+            <th scope="col">Villa</th>
+            <th scope="col">Customer</th>
+        </tr>
+        </thead>
+        <tbody >
+        <tr class="datarow" th:object="${reservation}">
+            <td th:text="${reservation.startDate}"></td>
+            <td th:text="${reservation.endDate}"></td>
+            <td th:text="${#numbers.formatCurrency(reservation.totalPrice)}"></td>
+            <td th:text="${reservation.villa.villaNumber}"></td>
+            <td th:text="${reservation.customer.name}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div th:replace="home/index :: #footer-section"></div>
 </div>
 </body>
-<footer th:replace="home/index :: #footer-section"></footer>
 </html>

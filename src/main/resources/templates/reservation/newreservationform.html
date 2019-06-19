@@ -5,7 +5,7 @@
 <body>
 <div class="container">
     <div th:replace="home/index :: #navbar-section"></div>
-
+    <div th:text="*{errors}"></div>
     <form action="/booknow" method="post" >
         <div class="form-group">
             <label for="startdate">Start Date</label>

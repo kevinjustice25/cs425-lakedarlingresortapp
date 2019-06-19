@@ -58,6 +58,7 @@ public class ReservationController {
         if (villas.size()==0){
             modelAndView.addObject("errors", "Sorry No Matching Villas Found");
             modelAndView.setViewName("reservation/newreservationform");
+            return modelAndView;
         }
         Villa villa = villaPicker(villas);
         Float totalPrice = calcPrice(startDate,endDate,villa.getPrice());
