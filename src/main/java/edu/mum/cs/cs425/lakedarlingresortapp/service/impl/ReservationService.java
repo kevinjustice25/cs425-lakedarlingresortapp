@@ -30,9 +30,6 @@ public class ReservationService implements IReservationService {
     public Reservation save(Reservation reservation, Long villaId, Long customerId) {
         reservation.setCustomer(customerService.findById(customerId));
         reservation.setVilla(villaService.findById(villaId));
-        System.out.println(reservation.getVilla().toString() + "\n" + reservation.getCustomer().toString() + "\n" +
-                reservation.getStartDate().toString() + reservation.getEndDate().toString() + reservation.getTotalPrice()
-                + "\n" + reservation.getReservationId());
         return reservationRepository.save(reservation);
     }
 
@@ -44,14 +41,35 @@ public class ReservationService implements IReservationService {
     @Override
     public Set<Villa> availableReservations(LocalDate startdate, LocalDate enddate, Integer numBeds) {
         List<Reservation> reservations = reservationRepository.availableReservations(startdate,enddate);
-        Set<Villa> bookedVillas = reservations.stream().map(reservation -> reservation.getVilla())
+        Set<Villa> bookedVillas = getBookedVillas(reservations);
+        Set<Villa> availableVillas = getVillas();
+        availableVillas = removeBookedVillas(bookedVillas,availableVillas);
+        availableVillas = filterNumBeds(availableVillas,numBeds);
+        return availableVillas;
+    }
+    @Override
+    public Set<Villa> availableReservations(LocalDate startdate, LocalDate enddate) {
+        List<Reservation> reservations = reservationRepository.availableReservations(startdate,enddate);
+        Set<Villa> bookedVillas = getBookedVillas(reservations);
+        Set<Villa> availableVillas = getVillas();
+        availableVillas = removeBookedVillas(bookedVillas,availableVillas);
+        return availableVillas;
+    }
+    private Set<Villa> filterNumBeds(Set<Villa> villas, Integer numBeds){
+        return villas.stream().filter(villa -> villa.getNumberBeds().intValue() == numBeds.intValue())
                 .collect(Collectors.toSet());
-        Set<Villa> availableVillas = villaService.findAll().stream().collect(Collectors.toSet());
+    }
+    private Set<Villa> getBookedVillas(List<Reservation> reservations){
+        return reservations.stream().map(reservation -> reservation.getVilla())
+                .collect(Collectors.toSet());
+    }
+    private Set<Villa> getVillas(){
+        return villaService.findAll().stream().collect(Collectors.toSet());
+    }
+    private Set<Villa> removeBookedVillas(Set<Villa> bookedVillas, Set<Villa> availableVillas){
         for (Villa bookedvilla : bookedVillas) {
             availableVillas.remove(bookedvilla);
         }
-        availableVillas = availableVillas.stream().filter(villa -> villa.getNumberBeds().intValue() == numBeds.intValue())
-                .collect(Collectors.toSet());
         return availableVillas;
     }
 }

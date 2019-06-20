@@ -18,19 +18,23 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link active" th:href="@{/home}">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" th:href="@{/customers}">All Customers</a>
-                <a class="nav-item nav-link" th:href="@{/newcustomerform}">Add New Customer</a>
-                <a class="nav-item nav-link" th:href="@{/owners}">View Owners</a>
-                <a class="nav-item nav-link" th:href="@{/newownerform}">Add New Owner</a>
-                <a class="nav-item nav-link" th:href="@{/villas}">View Villas</a>
-                <a class="nav-item nav-link" th:href="@{/newvillaform}">Add New Villas</a>
-                <a class="nav-item nav-link" th:href="@{/logout}">Log Out</a>
-            </div>
+        <div  class="navbar-nav">
+            <a class="nav-item nav-link active" th:href="@{/home}">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" th:href="@{/viewvillas}">View Availability</a>
+            <a class="nav-item nav-link" th:href="@{/newcustomerform}">Sign Up</a>
+            <a class="nav-item nav-link" th:href="@{/login}">Log In</a>
+            <a class="nav-item nav-link" th:href="@{/newreservationform}">Book Now</a>
+            <a class="nav-item nav-link" th:href="@{/logout}">Log Out</a>
         </div>
     </nav>
+    <div class="navbar navbar-expand-lg navbar-light bg-dark" id="navbar-lower-section">
+        <a class="nav-item nav-link" th:href="@{/customers}">View Customers</a>
+        <a class="nav-item nav-link" th:href="@{/reservations}">View Reservations</a>
+        <a class="nav-item nav-link" th:href="@{/owners}">View Owners</a>
+        <a class="nav-item nav-link" th:href="@{/villas}">View Villas</a>
+        <a class="nav-item nav-link" th:href="@{/newownerform}">Add New Owner</a>
+        <a class="nav-item nav-link" th:href="@{/newvillaform}">Add New Villas</a>
+    </div>
     <div class="container">
         <p><br/>Welcome to the Lake Darling Resort Management App<br/></p>
     </div>

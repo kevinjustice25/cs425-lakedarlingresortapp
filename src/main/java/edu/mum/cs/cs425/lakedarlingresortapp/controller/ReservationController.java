@@ -7,8 +7,6 @@ import edu.mum.cs.cs425.lakedarlingresortapp.service.ICustomerService;
 import edu.mum.cs.cs425.lakedarlingresortapp.service.IReservationService;
 import edu.mum.cs.cs425.lakedarlingresortapp.service.IVillaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -45,15 +43,16 @@ public class ReservationController {
     }
 
     @PostMapping("/booknow")
-    @ResponseBody
-    public ModelAndView viewAvailableVillas(@RequestParam String numbeds, @RequestParam String startdate,
-                                            @RequestParam String enddate, Principal principal, Authentication authentication){
-        System.out.println(principal.toString());
-        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        System.out.println("User has authorities: " + userDetails.getAuthorities());
+    public ModelAndView selectVillaPrepareCheckout( @RequestParam String startdate,
+                                            @RequestParam String enddate, @RequestParam String numbeds){
         ModelAndView modelAndView = new ModelAndView();
-        LocalDate startDate = LocalDate.parse(startdate);
-        LocalDate endDate = LocalDate.parse(enddate);
+        LocalDate startDate = LocalDate.parse(enddate);
+        LocalDate endDate = LocalDate.parse(startdate);
+        if (isValidDates(startDate,endDate)){
+            modelAndView.addObject("errors", "Invalid Dates");
+            modelAndView.setViewName("reservation/newreservationform");
+            return modelAndView;
+        }
         Set<Villa> villas = reservationService.availableReservations(startDate,endDate, Integer.parseInt(numbeds));
         if (villas.size()==0){
             modelAndView.addObject("errors", "Sorry No Matching Villas Found");
@@ -63,8 +62,8 @@ public class ReservationController {
         Villa villa = villaPicker(villas);
         Float totalPrice = calcPrice(startDate,endDate,villa.getPrice());
         modelAndView.addObject("villa",villa);
-        modelAndView.addObject("startdate",startDate);
-        modelAndView.addObject("enddate",endDate);
+        modelAndView.addObject("startdate",endDate);
+        modelAndView.addObject("enddate",startDate);
         modelAndView.addObject("totalprice", totalPrice);
         modelAndView.setViewName("reservation/checkoutform");
         return modelAndView;
@@ -76,9 +75,7 @@ public class ReservationController {
                                     @RequestParam String totalprice){
         LocalDate startDate = LocalDate.parse(startdate);
         LocalDate endDate = LocalDate.parse(enddate);
-        Customer customer = customerService.findAll().stream()
-                .filter(cust -> cust.getEmail().equalsIgnoreCase(principal.getName()))
-                .collect(Collectors.toList()).get(0);
+        Customer customer = getCustomer(principal);
         Reservation reservation = new Reservation();
         reservation.setStartDate(startDate);
         reservation.setEndDate(endDate);
@@ -89,11 +86,46 @@ public class ReservationController {
         modelAndView.setViewName("reservation/success");
         return modelAndView;
     }
+    @GetMapping("/viewvillas")
+    public ModelAndView viewavAvailableVillasForm(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("villa/checkvillas");
+        return modelAndView;
+    }
 
+    @PostMapping("/viewvillas")
+        public ModelAndView viewAvailableVillas(@RequestParam String enddate,
+                                            @RequestParam String startdate, ModelAndView modelAndView){
+        LocalDate startDate = LocalDate.parse(enddate);
+        LocalDate endDate = LocalDate.parse(startdate);
+        if (isValidDates(startDate,endDate)){
+            modelAndView.addObject("errors", "Invalid Dates");
+            modelAndView.setViewName("villa/checkvillas");
+            return modelAndView;
+        }
+        Set<Villa> villas = reservationService.availableReservations(startDate,endDate);
+        if (villas.size()==0){
+            modelAndView.addObject("errors", "Sorry No Matching Villas Found");
+            modelAndView.setViewName("villa/checkvillas");
+            return modelAndView;
+        }
+        modelAndView.addObject("villas",villas);
+        modelAndView.setViewName("villa/availablevillas");
+        return modelAndView;
+    }
+
+    private Customer getCustomer(Principal principal){
+        return customerService.findAll().stream()
+                .filter(cust -> cust.getEmail().equalsIgnoreCase(principal.getName()))
+                .collect(Collectors.toList()).get(0);
+    }
     private Float priceToFloat(String price){
         price = price.substring(1,price.length()-1);
         price = price.replace(",", "");
         return Float.parseFloat(price);
+    }
+    private boolean isValidDates(LocalDate start, LocalDate end){
+        return !end.isEqual(start) && !end.isBefore(start);
     }
 
     private Villa villaPicker(Set<Villa> villas){
@@ -106,7 +138,7 @@ public class ReservationController {
     }
 
     private Float calcPrice(LocalDate startDate, LocalDate endDate, Float pricePerNight){
-        int nights = endDate.getDayOfYear()- startDate.getDayOfYear();
+        int nights = startDate.getDayOfYear() - endDate.getDayOfYear();
         return pricePerNight * nights;
     }
 
