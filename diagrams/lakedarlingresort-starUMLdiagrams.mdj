@@ -1935,9 +1935,9 @@
 										"$ref": "AAAAAAFrc9nKlspGTGU="
 									},
 									"font": "Arial;13;0",
-									"left": 347,
+									"left": 341,
 									"top": 307,
-									"width": 7.22998046875,
+									"width": 19.5126953125,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 25,
@@ -1945,7 +1945,7 @@
 										"$ref": "AAAAAAFrc9nKmMpTadA="
 									},
 									"edgePosition": 2,
-									"text": "1"
+									"text": "1..*"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -1997,16 +1997,16 @@
 										"$ref": "AAAAAAFrc9nKlspH7So="
 									},
 									"font": "Arial;13;0",
-									"left": 456,
+									"left": 450,
 									"top": 238,
-									"width": 7.22998046875,
+									"width": 19.5126953125,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 25,
 									"hostEdge": {
 										"$ref": "AAAAAAFrc9nKmMpTadA="
 									},
-									"text": "1"
+									"text": "1..*"
 								},
 								{
 									"_type": "UMLQualifierCompartmentView",
@@ -2498,9 +2498,9 @@
 										"$ref": "AAAAAAFrc92b3NDDCT0="
 									},
 									"font": "Arial;13;0",
-									"left": 606,
+									"left": 605,
 									"top": 238,
-									"width": 19.5126953125,
+									"width": 20,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 25,
@@ -2770,9 +2770,9 @@
 										"$ref": "AAAAAAFrc96pd9IDm00="
 									},
 									"font": "Arial;13;0",
-									"left": 235,
+									"left": 234,
 									"top": 200,
-									"width": 5.05908203125,
+									"width": 7,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 25,
@@ -2832,9 +2832,9 @@
 										"$ref": "AAAAAAFrc96pd9IEyd8="
 									},
 									"font": "Arial;13;0",
-									"left": 237,
+									"left": 236,
 									"top": 267,
-									"width": 5.05908203125,
+									"width": 7,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 25,
@@ -8459,9 +8459,9 @@
 														"$ref": "AAAAAAFrc6XbmsKpsbU="
 													},
 													"font": "Arial;13;0",
-													"left": 618,
+													"left": 617,
 													"top": 1625,
-													"width": 114.16259765625,
+													"width": 117,
 													"height": 13,
 													"alpha": 1.5707963267948966,
 													"distance": 10,
@@ -8570,9 +8570,9 @@
 														"$ref": "AAAAAAFrc6gjFMLPBN4="
 													},
 													"font": "Arial;13;0",
-													"left": 911,
+													"left": 910,
 													"top": 1649,
-													"width": 114.16259765625,
+													"width": 117,
 													"height": 13,
 													"alpha": 0.38687558831930446,
 													"distance": 29.154759474226502,
@@ -8905,7 +8905,7 @@
 													"font": "Arial;13;0",
 													"left": 484,
 													"top": 1785,
-													"width": 98.0205078125,
+													"width": 98.21923828125,
 													"height": 13,
 													"alpha": 1.5707963267948966,
 													"distance": 10,
@@ -10136,7 +10136,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFrc0v1+709SFQ="
 							},
-							"name": "Role2"
+							"name": "Role2",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10144,7 +10145,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFrc0v1+709SFQ="
 							},
-							"name": "Role3"
+							"name": "Role3",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10152,7 +10154,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFrc0v1+709SFQ="
 							},
-							"name": "Role4"
+							"name": "Role4",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10160,7 +10163,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFrc0v1+709SFQ="
 							},
-							"name": "Role5"
+							"name": "Role5",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10168,7 +10172,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFrc0v1+709SFQ="
 							},
-							"name": "Role6"
+							"name": "Role6",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10176,7 +10181,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFrc0v1+709SFQ="
 							},
-							"name": "Role7"
+							"name": "Role7",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10184,7 +10190,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFrc0v1+709SFQ="
 							},
-							"name": "Role8"
+							"name": "Role8",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10192,7 +10199,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFrc0v1+709SFQ="
 							},
-							"name": "Role9"
+							"name": "Role9",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10200,7 +10208,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFrc0v1+709SFQ="
 							},
-							"name": "Role10"
+							"name": "Role10",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10208,7 +10217,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFrc0v1+709SFQ="
 							},
-							"name": "Role11"
+							"name": "Role11",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10216,7 +10226,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFrc0v1+709SFQ="
 							},
-							"name": "Role12"
+							"name": "Role12",
+							"type": ""
 						}
 					]
 				},
@@ -10228,24 +10239,6 @@
 					},
 					"name": "Reservation",
 					"ownedElements": [
-						{
-							"_type": "UMLAssociation",
-							"_id": "AAAAAAFrc9Q0fMVdE+4=",
-							"_parent": {
-								"$ref": "AAAAAAFrc8XMBsN6zeM="
-							},
-							"name": "has",
-							"end2": {
-								"_type": "UMLAssociationEnd",
-								"_id": "AAAAAAFrc9Q0fcVfKA8=",
-								"_parent": {
-									"$ref": "AAAAAAFrc9Q0fMVdE+4="
-								},
-								"reference": {
-									"$ref": "AAAAAAFrc8kdVcPQ7mU="
-								}
-							}
-						},
 						{
 							"_type": "UMLAssociation",
 							"_id": "AAAAAAFrc9Uj2sXfFOk=",
@@ -10275,26 +10268,6 @@
 								"reference": {
 									"$ref": "AAAAAAFrc8kdVcPQ7mU="
 								}
-							}
-						},
-						{
-							"_type": "UMLAssociation",
-							"_id": "AAAAAAFrc9Z7HMZxyPU=",
-							"_parent": {
-								"$ref": "AAAAAAFrc8XMBsN6zeM="
-							},
-							"name": "has",
-							"end1": {
-								"_type": "UMLAssociationEnd",
-								"_id": "AAAAAAFrc9Z7HMZy1Sc=",
-								"_parent": {
-									"$ref": "AAAAAAFrc9Z7HMZxyPU="
-								},
-								"reference": {
-									"$ref": "AAAAAAFrc8XMBsN6zeM="
-								},
-								"navigable": false,
-								"multiplicity": "1"
 							}
 						},
 						{
@@ -10368,7 +10341,8 @@
 								"$ref": "AAAAAAFrc8XMBsN6zeM="
 							},
 							"name": "Long reservationId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10377,7 +10351,8 @@
 								"$ref": "AAAAAAFrc8XMBsN6zeM="
 							},
 							"name": "LocalDate startDate",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10386,7 +10361,8 @@
 								"$ref": "AAAAAAFrc8XMBsN6zeM="
 							},
 							"name": "LocalDate endDate",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10395,7 +10371,8 @@
 								"$ref": "AAAAAAFrc8XMBsN6zeM="
 							},
 							"name": "Float totalPrice",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						}
 					]
 				},
@@ -10447,7 +10424,8 @@
 								"$ref": "AAAAAAFrc8kdVcPQ7mU="
 							},
 							"name": "Long customerId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10456,7 +10434,8 @@
 								"$ref": "AAAAAAFrc8kdVcPQ7mU="
 							},
 							"name": "String name",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10465,7 +10444,8 @@
 								"$ref": "AAAAAAFrc8kdVcPQ7mU="
 							},
 							"name": "String phone",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10474,7 +10454,8 @@
 								"$ref": "AAAAAAFrc8kdVcPQ7mU="
 							},
 							"name": "String Email",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10483,7 +10464,8 @@
 								"$ref": "AAAAAAFrc8kdVcPQ7mU="
 							},
 							"name": "LocalDate dateOfBirth",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10492,7 +10474,8 @@
 								"$ref": "AAAAAAFrc8kdVcPQ7mU="
 							},
 							"name": "String password",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						}
 					]
 				},
@@ -10544,7 +10527,8 @@
 								"$ref": "AAAAAAFrc8yPwcQzxoU="
 							},
 							"name": "Long ownerId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10553,7 +10537,8 @@
 								"$ref": "AAAAAAFrc8yPwcQzxoU="
 							},
 							"name": "String name",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10562,7 +10547,8 @@
 								"$ref": "AAAAAAFrc8yPwcQzxoU="
 							},
 							"name": "String email",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10571,7 +10557,8 @@
 								"$ref": "AAAAAAFrc8yPwcQzxoU="
 							},
 							"name": "String phone",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						}
 					]
 				},
@@ -10590,7 +10577,8 @@
 								"$ref": "AAAAAAFrc84I8cR6oWI="
 							},
 							"name": "Long addressId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10599,7 +10587,8 @@
 								"$ref": "AAAAAAFrc84I8cR6oWI="
 							},
 							"name": "Integer houseNumber",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10608,7 +10597,8 @@
 								"$ref": "AAAAAAFrc84I8cR6oWI="
 							},
 							"name": "String street",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10617,7 +10607,8 @@
 								"$ref": "AAAAAAFrc84I8cR6oWI="
 							},
 							"name": "String streetLineTwo",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10626,7 +10617,8 @@
 								"$ref": "AAAAAAFrc84I8cR6oWI="
 							},
 							"name": "String city",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10635,7 +10627,8 @@
 								"$ref": "AAAAAAFrc84I8cR6oWI="
 							},
 							"name": "String state",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10644,7 +10637,8 @@
 								"$ref": "AAAAAAFrc84I8cR6oWI="
 							},
 							"name": "Integer zip",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						}
 					]
 				},
@@ -10752,7 +10746,8 @@
 								"$ref": "AAAAAAFrc9BF+cTWpZA="
 							},
 							"name": "Long villaId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10761,7 +10756,8 @@
 								"$ref": "AAAAAAFrc9BF+cTWpZA="
 							},
 							"name": "Integer villaNumber",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10770,7 +10766,8 @@
 								"$ref": "AAAAAAFrc9BF+cTWpZA="
 							},
 							"name": "Integer numberBeds",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10779,7 +10776,8 @@
 								"$ref": "AAAAAAFrc9BF+cTWpZA="
 							},
 							"name": "Float price",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						}
 					]
 				},
@@ -10830,7 +10828,8 @@
 								"$ref": "AAAAAAFrc9GWLsUc1y0="
 							},
 							"name": "Long id",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10839,7 +10838,8 @@
 								"$ref": "AAAAAAFrc9GWLsUc1y0="
 							},
 							"name": "String name",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						}
 					]
 				},
@@ -10867,7 +10867,7 @@
 								"reference": {
 									"$ref": "AAAAAAFrc8kdVcPQ7mU="
 								},
-								"multiplicity": "1"
+								"multiplicity": "1..*"
 							},
 							"end2": {
 								"_type": "UMLAssociationEnd",
@@ -10878,7 +10878,7 @@
 								"reference": {
 									"$ref": "AAAAAAFrc9BF+cTWpZA="
 								},
-								"multiplicity": "1"
+								"multiplicity": "1..*"
 							}
 						},
 						{
@@ -10903,7 +10903,8 @@
 								"$ref": "AAAAAAFrc9nKlspEva8="
 							},
 							"name": "Long reservationId",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10912,7 +10913,8 @@
 								"$ref": "AAAAAAFrc9nKlspEva8="
 							},
 							"name": "LocalDate startDate",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10921,7 +10923,8 @@
 								"$ref": "AAAAAAFrc9nKlspEva8="
 							},
 							"name": "LocalDate endDate",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10930,7 +10933,8 @@
 								"$ref": "AAAAAAFrc9nKlspEva8="
 							},
 							"name": "Float totalPrice",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						}
 					]
 				}
@@ -13530,7 +13534,7 @@
 									"left": 976,
 									"top": 416,
 									"width": 70,
-									"height": 51,
+									"height": 64,
 									"text": "Returns Set of All Villas"
 								},
 								{
@@ -14105,7 +14109,8 @@
 					"_parent": {
 						"$ref": "AAAAAAFrcwGBY7ni20E="
 					},
-					"name": "Role2"
+					"name": "Role2",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -14113,7 +14118,8 @@
 					"_parent": {
 						"$ref": "AAAAAAFrcwGBY7ni20E="
 					},
-					"name": "Role3"
+					"name": "Role3",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -14121,7 +14127,8 @@
 					"_parent": {
 						"$ref": "AAAAAAFrcwGBY7ni20E="
 					},
-					"name": "Role4"
+					"name": "Role4",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -14129,7 +14136,8 @@
 					"_parent": {
 						"$ref": "AAAAAAFrcwGBY7ni20E="
 					},
-					"name": "Role5"
+					"name": "Role5",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -14137,7 +14145,8 @@
 					"_parent": {
 						"$ref": "AAAAAAFrcwGBY7ni20E="
 					},
-					"name": "Role6"
+					"name": "Role6",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -14145,7 +14154,8 @@
 					"_parent": {
 						"$ref": "AAAAAAFrcwGBY7ni20E="
 					},
-					"name": "Role7"
+					"name": "Role7",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -14153,7 +14163,8 @@
 					"_parent": {
 						"$ref": "AAAAAAFrcwGBY7ni20E="
 					},
-					"name": "Role8"
+					"name": "Role8",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -14161,7 +14172,8 @@
 					"_parent": {
 						"$ref": "AAAAAAFrcwGBY7ni20E="
 					},
-					"name": "Role9"
+					"name": "Role9",
+					"type": ""
 				}
 			]
 		}
